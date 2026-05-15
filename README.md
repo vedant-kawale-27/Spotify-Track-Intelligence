@@ -51,8 +51,8 @@ This project takes raw Spotify track data, loads it into a **MySQL database**, c
 
 ### Step 1 — Clone the Repository
 ```bash
-git clone https://github.com/your-username/spotify-powerbi-dashboard.git
-cd spotify-powerbi-dashboard
+git clone https://github.com/vedant-kawale-27/spotify-track-intelligence-powerbi-mysql.git
+cd Spotify-Track-Intelligence
 ```
 
 ### Step 2 — Set Up MySQL Database
