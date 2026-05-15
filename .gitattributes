@@ -1,3 +1,1 @@
 *.sql linguist-detectable=true
-*.pbix linguist-language=PowerQuery
-*.pbix linguist-detectable=true
