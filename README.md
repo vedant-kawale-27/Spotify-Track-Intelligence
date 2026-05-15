@@ -142,7 +142,7 @@ Avg Duration Min = ROUND(AVERAGE('Spotify Tracks'[duration_min]), 2)
 ## 📂 File Structure
 
 ```
-spotify-powerbi-dashboard/
+Spotify-Track-Intelligence/
 │
 ├── dataset/
 │   └── dataset.csv
@@ -153,6 +153,7 @@ spotify-powerbi-dashboard/
 │
 ├── dashboard/
 │   └── Spotify.pbix
+|   └── Spotify.pdf
 │
 ├── assets/
 │   ├── Spotify_page-0001.jpg
@@ -160,7 +161,9 @@ spotify-powerbi-dashboard/
 │   ├── Spotify_page-0003.jpg
 │   └── Spotify_page-0004.jpg
 │
-└── README.md
+├── README.md
+|
+└── LICENSE
 ```
 
 ---
