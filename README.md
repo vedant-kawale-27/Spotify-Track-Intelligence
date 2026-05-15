@@ -154,7 +154,7 @@ spotify-powerbi-dashboard/
 ├── dashboard/
 │   └── Spotify.pbix
 │
-├── screenshots/
+├── assets/
 │   ├── Spotify_page-0001.jpg
 │   ├── Spotify_page-0002.jpg
 │   ├── Spotify_page-0003.jpg
