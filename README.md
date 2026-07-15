@@ -26,6 +26,56 @@ This project takes raw Spotify track data, loads it into a **MySQL database**, c
 
 ---
 
+## 🔄 Data Flow
+
+```mermaid
+flowchart TD
+    subgraph SRC["📦 Source"]
+        A["Kaggle Dataset<br/>Spotify Tracks Dataset<br/>114,000 rows × 21 cols"]
+    end
+
+    subgraph DB["🗄️ MySQL 8.0"]
+        B["dataset.csv"]
+        C["create_table.sql<br/>(schema definition)"]
+        D["load_data.sql<br/>(bulk load via<br/>secure file path)"]
+        E[("spotify_db<br/>Spotify Tracks table")]
+    end
+
+    subgraph ETL["🔄 Power Query Transformations"]
+        F["duration_ms → duration_min"]
+        G["explicit: 0/1 → Clean/Explicit"]
+        H["popularity_tier:<br/>Low / Medium / High"]
+        I["Trim whitespace<br/>(artists, track_name, album_name)"]
+        J["Remove duplicate track_id"]
+        K["Fix numeric data types"]
+    end
+
+    subgraph DAX["📐 DAX Measures"]
+        L["Total Tracks, Avg Popularity,<br/>Explicit %, Total Genres,<br/>Avg Duration Min"]
+    end
+
+    subgraph BI["📊 Power BI Dashboard (Spotify.pbix)"]
+        M["Page 1: Music Overview<br/>KPIs, Top Artists, Genre Treemap"]
+        N["Page 2: Genre Analysis<br/>Popularity & Audio Features by Genre"]
+        O["Page 3: Track & Artist Deep Dive<br/>Top Tracks, Tempo, Valence vs Energy"]
+        P["Page 4: Track Intelligence Hub<br/>Search & Filter any Track"]
+    end
+
+    A --> B
+    C -->|1. creates schema| E
+    B --> D
+    D -->|2. inserts data into schema| E
+    E -->|MySQL Connector/NET| F
+    F --> G --> H --> I --> J --> K
+    K --> L
+    L --> M
+    L --> N
+    L --> O
+    L --> P
+```
+
+---
+
 ## 🗃️ Dataset
 
 - **Source:** [Spotify Tracks Dataset (Kaggle)](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset)
